@@ -26,7 +26,10 @@
       border-radius: 15% 12% 92% 5%/51% 67% 54% 95%;
       padding: 0px;
       margin: 0px 0px 0px 0px;
+      margin: 0% 20% 0% 20%;
       display: none;
+
+      animation: zoomIn 0.5s ;
     }
 
     ul.year-list {
@@ -63,8 +66,8 @@
 
     li.date {
       display: inline-block;
-      padding: 10px;
-      font-size: 12px;
+      padding: 20px;
+      font-size: 16px;
       font-family: 'Rock Salt', cursive;
     }
 
@@ -109,6 +112,20 @@
       padding-top: -20px;
       cursor: pointer;
     }
+
+
+
+    @keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
   </style>
 </head>
 
@@ -171,7 +188,7 @@
   <script type="text/javascript">
     $(document).ready(function() {
       $(".year").on("mouseenter", function() {
-        $(".dates").show(500);
+        $(".dates").show();
       });
       $(".year").on("mouseleave", function() {
         $(".dates").hide();

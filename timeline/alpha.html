@@ -6,7 +6,7 @@
   <style type="text/css">
 
     body{
-      animation: fadeIn 2s;
+      animation: fadeIn 4s;
       padding: 10px !important;
     }
     .selected-year {
@@ -19,12 +19,13 @@
     }
 
     div.dates {
-      border-left: 2px solid black;
-      border-right: 2px solid black;
-      border-bottom: 2px solid black;
-      border-top: 2px solid black;
+      border-left: 4px solid black;
+      border-right: 5px solid black;
+      border-bottom: 3px solid black;
+      border-top: 3px solid black;
+      border-radius:95% 4% 92% 5%/4% 95% 6% 95%;
       padding: 0px;
-      margin: -18px 0px 0px 0px;
+      margin: -20px 0px 0px 0px;
       display: none;
     }
 
@@ -37,7 +38,8 @@
     li.year {
       display: inline-block;
       padding: 10px;
-      font-size: 16px;
+      font-size: 12px;
+      font-family: 'Rock Salt', cursive;
       cursor: pointer;
       text-align: center;
       transition-duration: 0.5s;
@@ -45,11 +47,12 @@
 
     .year:hover {
       animation: increase_font 0.5s;
-      font-size: 114px;
+      font-size: 60px;
       border-left: 2px solid black;
       border-right: 2px solid black;
       border-top: 2px solid black;
-      border-bottom: 2px solid white;
+      border-bottom: 8px solid black;
+      border-radius: 4% 12% 100% 92%;
       transition: scale 1s ease;
     }
 
@@ -60,8 +63,8 @@
 
     li.date {
       display: inline-block;
-      padding: 20px;
-      font-size: 18px;
+      padding: 10px;
+      font-size: 12px;
       font-family: 'Rock Salt', cursive;
     }
 
@@ -70,7 +73,7 @@
         font-size: 20px;
       }
       100% {
-        font-size: 114px;
+        font-size: 60px;
       }
     }
 

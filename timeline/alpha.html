@@ -4,66 +4,171 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
   <style type="text/css">
+    .selected-year {
+      font-size: 90px;
+      padding: 20px;
+      font-weight: lighter;
+      margin: 0px 0px 0px 20px;
+      font-family: 'Rock Salt', cursive;
+      animation: fadeIn 2s;
+    }
 
-  .selected-year{
-    font-size: 90px;
-    padding:20px;
-    font-weight: lighter;
-    display: block;
-    text-align: center;
-    margin:0px 0px 0px 20px;
-    font-family: 'Rock Salt', cursive;
-  }
+    div.dates {
+      border-left: 2px solid black;
+      border-right: 2px solid black;
+      border-bottom: 2px solid black;
+      border-top: 2px solid black;
+      padding: 0px;
+      margin: -18px 0px 0px 0px;
+      display: none;
+    }
 
-  ul{
+    ul.year-list {
 
-    list-style-type: none;
-  }
+      list-style-type: none;
+      animation: fadeIn 2s;
+    }
 
-  li{
-    display: inline-block;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    text-align:center;
-    transition-duration: 0.5s;
-  }
+    li.year {
+      display: inline-block;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+      transition-duration: 0.5s;
+    }
 
-  li:hover{
-    animation: increase_font 0.5s;
-    font-size: 120px;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-top: 2px solid black;
-  }
+    .year:hover {
+      animation: increase_font 0.5s;
+      font-size: 120px;
+      border-left: 2px solid black;
+      border-right: 2px solid black;
+      border-top: 2px solid black;
+      border-bottom: 2px solid white;
+      transition: scale 1s ease;
+    }
 
-  @keyframes increase_font {
-      0%{
+    ul.date-list {
+      list-style-type: none;
+      animation: fadeIn 2s;
+    }
+
+    li.date {
+      display: inline-block;
+      padding: 20px;
+      font-size: 18px;
+      font-family: 'Rock Salt', cursive;
+    }
+
+    @keyframes increase_font {
+      0% {
         font-size: 20px;
       }
-      100%{
+      100% {
         font-size: 120px;
       }
-  }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+    .carousel{
+      display: inline-block;
+      margin: auto;
+      text-align: center;
+    }
+    .f-left{
+      float: left;
+    }
+    .r-right{
+      float:right;
+    }
+    .carousel-button{
+      font-family: monospace;
+      font-size: 50px;
+      margin-top: 115px;
+      border-radius: 10%;
+      padding-top: -20px;
+      cursor: pointer;
+    }
   </style>
 </head>
 
 <body>
-  <h2 class="selected-year">2018</h2>
-  <ul>
-    <li>January</li>
-    <li>February</li>
-    <li>March</li>
-    <li>April</li>
-    <li>May</li>
-    <li>June</li>
-    <li>July</li>
-    <li>August</li>
-    <li>September</li>
-    <li>October</li>
-    <li>November</li>
-    <li>December</li>
+  <div class="carousel">
+    <i class="carousel-button f-left">&#8249;</i>
+    <h2 class="selected-year f-left">2018</h2>
+    <i class="carousel-button f-left">&#8250;</i>
+  </div>
+  <ul class="year-list">
+    <li class="year">January</li>
+    <li class="year">February</li>
+    <li class="year">March</li>
+    <li class="year">April</li>
+    <li class="year">May</li>
+    <li class="year">June</li>
+    <li class="year">July</li>
+    <li class="year">August</li>
+    <li class="year">September</li>
+    <li class="year">October</li>
+    <li class="year">November</li>
+    <li class="year">December</li>
   </ul>
+  <div class="dates">
+    <ul class="date-list">
+      <li class="date">1</li>
+      <li class="date">2</li>
+      <li class="date">3</li>
+      <li class="date">4</li>
+      <li class="date">5</li>
+      <li class="date">6</li>
+      <li class="date">7</li>
+      <li class="date">8</li>
+      <li class="date">9</li>
+      <li class="date">10</li>
+      <li class="date">11</li>
+      <li class="date">12</li>
+      <li class="date">13</li>
+      <li class="date">14</li>
+      <li class="date">15</li>
+      <li class="date">16</li>
+      <li class="date">17</li>
+      <li class="date">18</li>
+      <li class="date">19</li>
+      <li class="date">20</li>
+      <li class="date">21</li>
+      <li class="date">22</li>
+      <li class="date">23</li>
+      <li class="date">24</li>
+      <li class="date">25</li>
+      <li class="date">26</li>
+      <li class="date">27</li>
+      <li class="date">28</li>
+      <li class="date">29</li>
+      <li class="date">30</li>
+      <li class="date">31</li>
+    </ul>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".year").on( "mouseenter",function(){
+        $(".dates").show();
+      });
+      $(".year").on( "mouseleave",function(){
+        $(".dates").hide();
+      });
+
+
+
+    });
+  </script>
 </body>
 
 </html>

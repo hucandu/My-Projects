@@ -14,18 +14,16 @@ class Year extends React.Component {
 
   changeYear(e) {
     let flow = e.target.getAttribute('data-flow');
-    let currentState = {
-      ...this.state
-    }
+    let currentYear = this.props.currentYear
     if (flow === 'next') {
+      this.props.updateYear(currentYear+1);
       this.setState({
-        currentYear: ++currentState.currentYear,
         yearAnimationClass:"fadeInUp"
       })
     } else if (flow === 'prev') {
+      this.props.updateYear(currentYear-1);
       this.setState({
-        currentYear: --currentState.currentYear,
-        yearAnimationClass:"fadeInDown"
+        yearAnimationClass:"fadeOutUp"
       })
     }
 
@@ -35,7 +33,7 @@ class Year extends React.Component {
   render() {
     return (<div className="carousel">
       <i className="carousel-button unselectable" data-flow="prev"  onClick={this.changeYear.bind(this)}>&#8249;</i>
-      <h2 className={"selected-year "+this.state.yearAnimationClass}>{this.state.currentYear}</h2>
+      <h2 className={"selected-year "+this.state.yearAnimationClass}>{this.props.currentYear}</h2>
       <i className="carousel-button unselectable" data-flow="next"  onClick={this.changeYear.bind(this)}>&#8250;</i>
     </div>
       );

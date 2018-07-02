@@ -49,21 +49,19 @@ height: 120px;
 animation: fadeInUp 0.25s ;
 }
 
-.fadeInDown{
-animation: fadeInDown 0.25s;
+.fadeOutUp{
+animation: fadeOutUp 0.25s;
 }
 
-@keyframes fadeInDown {
+@keyframes fadeOutUp {
   from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -25%, 0);
-    transform: translate3d(0, -25%, 0);
+    opacity: 1;
   }
 
   to {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    opacity: 0;
+    -webkit-transform: translate3d(0, -25%, 0);
+    transform: translate3d(0, -25%, 0);
   }
 }
 

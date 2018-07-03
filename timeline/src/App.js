@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Year from './Year.js'
+import Month from './Month.js'
 class App extends Component {
 
   constructor(){
@@ -16,6 +17,7 @@ class App extends Component {
     return (
     <div>
       <Year currentYear={this.state.currentYear} updateYear={this.updateYear} />
+      <Month />
     </div>
     );
   }

@@ -126,6 +126,17 @@
     opacity: 1;
   }
 }
+
+@@keyframes fill_color {
+  0% {
+    color: black;
+    background-color: white;
+  }
+  100% {
+    color: white;
+    background-color: black;
+  }
+}
   </style>
 </head>
 
@@ -193,8 +204,6 @@
       $(".year").on("mouseleave", function() {
         $(".dates").hide();
       });
-
-
 
     });
   </script>

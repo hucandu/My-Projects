@@ -4,13 +4,18 @@ body {
 }
 
 .carousel {
-  display:flex;
+  display: flex;
   flex-direction: row;
   width: 350px;
+  margin-left: 40px;
+}
+
+.block-center {
+  display: block;
+  margin: auto;
 }
 
 .carousel-button {
-
   font-family: monospace;
   font-size: 50px;
   margin-top: 70px;
@@ -28,14 +33,13 @@ body {
   user-select: none;
 }
 
-.carousel > div {
-background-color: #8ca0ff;
-width: 120px;
-height: 120px;
+.carousel>div {
+  background-color: #8ca0ff;
+  width: 120px;
+  height: 120px;
 }
 
 .selected-year {
-
   font-size: 60px;
   padding: 20px;
   font-weight: lighter;
@@ -45,19 +49,70 @@ height: 120px;
   flex-grow: 1
 }
 
-.fadeInUp{
-animation: fadeInUp 0.25s ;
+.fadeInUp {
+  animation: fadeInUp 0.25s;
 }
 
-.fadeOutUp{
-animation: fadeOutUp 0.25s;
+.fadeOutUp {
+  animation: fadeOutUp 0.25s;
 }
+
+ul.month-list {
+  list-style-type: none;
+}
+
+li.month {
+  display: inline-block;
+  padding: 10px;
+  font-size: 12px;
+  font-family: 'Rock Salt', cursive;
+  cursor: pointer;
+  text-align: center;
+  transition-duration: 0.5s;
+}
+
+.month:hover {
+  animation: increase_font 0.5s;
+  font-size: 60px;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-top: 2px solid black;
+  border-bottom: 8px solid black;
+  border-radius: 95% 4% 100% 100%/4% 9% 100% 100%;
+  transition: scale 1s ease;
+}
+
+.month::after{
+  background-color: red;
+}
+
+.fill_color:hover{
+  animation: fill_color 0.5s;
+  -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
+  -moz-animation-fill-mode: forwards;    /* FF 5+ */
+  -o-animation-fill-mode: forwards;      /* Not implemented yet */
+  -ms-animation-fill-mode: forwards;     /* IE 10+ */
+  animation-fill-mode: forwards;         /* When the spec is finished */
+}
+
+.fill_color{
+  background-color: #282828;
+  color: white;
+  border-radius: 95% 4% 100% 100%/4% 9% 100% 100%;
+
+
+}
+
+
+
+
+
+
 
 @keyframes fadeOutUp {
   from {
     opacity: 1;
   }
-
   to {
     opacity: 0;
     -webkit-transform: translate3d(0, -25%, 0);
@@ -71,7 +126,6 @@ animation: fadeOutUp 0.25s;
     -webkit-transform: translate3d(0, 25%, 0);
     transform: translate3d(0, 25%, 0);
   }
-
   to {
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
@@ -83,8 +137,27 @@ animation: fadeOutUp 0.25s;
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
+  }
+}
+
+@keyframes increase_font {
+  0% {
+    font-size: 20px;
+  }
+  100% {
+    font-size: 60px;
+  }
+}
+
+@keyframes fill_color {
+  0% {
+    color: black;
+    background-color: white;
+  }
+  100% {
+    color: white;
+    background-color: #282828;
   }
 }

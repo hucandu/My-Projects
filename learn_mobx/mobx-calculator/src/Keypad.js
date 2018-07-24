@@ -25,14 +25,18 @@ import {computed} from "mobx";
         this.props.store.displayString += "/";
       },
       "decimal":()=>{
-        this.props.store.displayString += ".";
+        if(!(/d{0,}[.]d{0,}/.test(this.props.store.displayString.split(/[+/x-]/).slice(-1)))){
+
+          this.props.store.displayString += ".";
+        }
+
       },
       "multiply":()=>{
         this.props.store.displayString += "x";
       }
     }
   }
-  performAction(action) {
+  stackOperands(action) {
 
     if (isNaN(action)) {
       this.operations()[action]();
@@ -47,90 +51,90 @@ import {computed} from "mobx";
       <div className="row no-gutters m-t-10">
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box  button-caution button-jumbo" onClick={(e) => {
-              this.performAction('AC')
+              this.stackOperands('AC')
             }}>AC</button>
         </div>
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box button-jumbo button-royal" onClick={(e) => {
-              this.performAction('backspace')
+              this.stackOperands('backspace')
             }}>
             <i className="fas fa-backspace"></i>
           </button>
         </div>
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box button-jumbo button-primary" onClick={(e) => {
-              this.performAction('division')
+              this.stackOperands('division')
             }}>÷</button>
         </div>
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box button-jumbo button-primary" onClick={(e) => {
-              this.performAction('multiply')
+              this.stackOperands('multiply')
             }}>x</button>
         </div>
       </div>
       <div className="row no-gutters m-t-15">
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box button-jumbo" onClick={(e) => {
-              this.performAction(9)
+              this.stackOperands(9)
             }}>9</button>
         </div>
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box button-jumbo" onClick={(e) => {
-              this.performAction(8)
+              this.stackOperands(8)
             }}>8</button>
         </div>
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box button-jumbo" onClick={(e) => {
-              this.performAction(7)
+              this.stackOperands(7)
             }}>7</button>
         </div>
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box button-jumbo button-primary" onClick={(e) => {
-              this.performAction('minus')
+              this.stackOperands('minus')
             }}>-</button>
         </div>
       </div>
       <div className="row no-gutters m-t-15">
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box button-jumbo" onClick={(e) => {
-              this.performAction(6)
+              this.stackOperands(6)
             }}>6</button>
         </div>
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box button-jumbo" onClick={(e) => {
-              this.performAction(5)
+              this.stackOperands(5)
             }}>5</button>
         </div>
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box button-jumbo" onClick={(e) => {
-              this.performAction(4)
+              this.stackOperands(4)
             }}>4</button>
         </div>
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box button-jumbo button-primary" onClick={(e) => {
-              this.performAction('plus')
+              this.stackOperands('plus')
             }}>+</button>
         </div>
       </div>
       <div className="row no-gutters m-t-15">
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box button-jumbo" onClick={(e) => {
-              this.performAction(3)
+              this.stackOperands(3)
             }}>3</button>
         </div>
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box button-jumbo" onClick={(e) => {
-              this.performAction(2)
+              this.stackOperands(2)
             }}>2</button>
         </div>
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box button-jumbo" onClick={(e) => {
-              this.performAction(1)
+              this.stackOperands(1)
             }}>1</button>
         </div>
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box button-jumbo button-royal equal-button" onClick={(e) => {
-              this.performAction('equals')
+              this.stackOperands('equals')
             }}>
             <i className="fa fa-equals"></i>
           </button>
@@ -139,17 +143,17 @@ import {computed} from "mobx";
       <div className="row no-gutters m-t-15">
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box button-jumbo button-primary" onClick={(e) => {
-              this.performAction('percent')
+              this.stackOperands('percent')
             }}>%</button>
         </div>
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box button-jumbo" onClick={(e) => {
-              this.performAction(0)
+              this.stackOperands(0)
             }}>0</button>
         </div>
         <div className="col-md-3  text-center">
           <button className="button button-3d button-box button-jumbo button-primary" onClick={(e) => {
-              this.performAction('decimal')
+              this.stackOperands('decimal')
             }}>.</button>
         </div>
       </div>

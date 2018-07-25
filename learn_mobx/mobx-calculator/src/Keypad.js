@@ -47,8 +47,18 @@ import {computed} from "mobx";
               }
             },
             "equals":()=>{
-              let result = eval(this.props.store.displayString);
-              this.props.store.displayString = result.toString();
+              try{
+                let result = eval(this.props.store.displayString);
+                this.props.store.displayString = result.toString();
+              }
+              catch(e){
+                this.props.store.displayString = "Invalid";
+              }
+            },
+            "exponent":()=>{
+              if(!(/[+/x-]$/.test(this.props.store.displayString))){
+                this.props.store.displayString += "**"
+              }
             }
         }
     }
@@ -158,9 +168,9 @@ import {computed} from "mobx";
             </div>
             <div className="row no-gutters m-t-15">
                 <div className="col-md-3  text-center">
-                    <button className="button disabled button-3d button-box button-jumbo button-primary " onClick={(e) => {
-                            this.stackOperands('percent')
-                        }} disabled >%</button>
+                    <button className="button  button-3d button-box button-jumbo button-primary " onClick={(e) => {
+                            this.stackOperands('exponent')
+                        }}  >e</button>
                 </div>
                 <div className="col-md-3  text-center">
                     <button className="button button-3d button-box button-jumbo" onClick={(e) => {

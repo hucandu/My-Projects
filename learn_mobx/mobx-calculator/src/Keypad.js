@@ -45,6 +45,10 @@ import {computed} from "mobx";
 
                 this.props.store.displayString += "x";
               }
+            },
+            "equals":()=>{
+              let result = eval(this.props.store.displayString);
+              this.props.store.displayString = result.toString();
             }
         }
     }
@@ -154,9 +158,9 @@ import {computed} from "mobx";
             </div>
             <div className="row no-gutters m-t-15">
                 <div className="col-md-3  text-center">
-                    <button className="button button-3d button-box button-jumbo button-primary" onClick={(e) => {
+                    <button className="button disabled button-3d button-box button-jumbo button-primary " onClick={(e) => {
                             this.stackOperands('percent')
-                        }}>%</button>
+                        }} disabled >%</button>
                 </div>
                 <div className="col-md-3  text-center">
                     <button className="button button-3d button-box button-jumbo" onClick={(e) => {

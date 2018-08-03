@@ -8,11 +8,9 @@ body {
 .card {
   background: #fff;
   border-radius: 2px;
-  display: block;
   position: relative;
   width: 30rem;
-  margin: auto;
-  margin-top: 2vh;
+  margin-top: 40px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   padding-bottom: 20px;
 }
@@ -51,5 +49,19 @@ body {
  .equal-button {
   height: 135px !important;
   position: absolute !important;
-  left: 23% !important;
+  left: 16% !important;
+}
+
+.vertical-align{
+  margin-top: 35%;
+
+
+}
+
+.header-style{
+    font-family: 'Kaushan Script', cursive;
+}
+
+.lg-font{
+    font-size:40px;
 }

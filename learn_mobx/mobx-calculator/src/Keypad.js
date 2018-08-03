@@ -43,7 +43,7 @@ import {computed} from "mobx";
             "multiply": () => {
               if(!(/[+/x-]$/.test(this.props.store.displayString))){
 
-                this.props.store.displayString += "x";
+                this.props.store.displayString += "*";
               }
             },
             "equals":()=>{

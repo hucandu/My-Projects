@@ -1,20 +1,30 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import UltimateAppBar from './appbar'
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#424242',
+      light: '#6d6d6d',
+      dark: '#1b1b1b',
+      contrastText: '#fff'
+    },
+    secondary: {
+      main: '#00a8e1',
+      light: '#63daff',
+      dark: '#0079af',
+      contrastText: '#fff'
+    }
+  }
+});
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+    return (<MuiThemeProvider theme={theme}>
+      <UltimateAppBar/>
+    </MuiThemeProvider>);
   }
 }
 

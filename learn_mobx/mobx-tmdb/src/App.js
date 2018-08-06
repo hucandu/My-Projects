@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import UltimateAppBar from './appbar'
+import UltimateAppBar from './appbar';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
-import BannerSlider from './carousel'
+import TheatreSlider from './theatreSlider';
+
 
 const theme = createMuiTheme({
   palette: {
@@ -24,7 +25,9 @@ class App extends Component {
   render() {
     return (<MuiThemeProvider theme={theme}>
       <UltimateAppBar />
-      <BannerSlider />
+      <TheatreSlider />
+      <h1 className="sub-heading">Most Popular</h1>
+      <div className="line"></div>
     </MuiThemeProvider>);
   }
 }

@@ -2,12 +2,12 @@ import React from "react";
 import Slider from "react-slick";
 import "./index.css";
 
-class BannerSlider extends React.Component {
+class TheatreSlider extends React.Component {
   render() {
     var settings = {
       dots: true,
       infinite: true,
-      speed: 500,
+      speed: 1000,
       arrows:false,
       autoplay:true,
       autoplaySpeed:3000,
@@ -38,4 +38,4 @@ class BannerSlider extends React.Component {
     );
   }
 }
-export default BannerSlider;
+export default TheatreSlider;

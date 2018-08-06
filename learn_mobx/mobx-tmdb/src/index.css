@@ -26,7 +26,7 @@ margin-left: 10px;
    background-position: center center;
    background-repeat: no-repeat;
    background-size:cover;
-   background-image: url('http://www.spulsa.info/wp-content/uploads/movie-banners-four-banners-for-christopher-nolans-inception-collider.jpg');
+   background-image: url('https://image.tmdb.org/t/p/original/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg');
 }
 
 .slick-slider{
@@ -39,6 +39,7 @@ margin-left: 10px;
   margin-left:2%;
   margin-right: 2%;
   margin-top:-25px;
+  margin-bottom:-25px;
 }
 
 
@@ -48,4 +49,16 @@ margin-left: 10px;
   padding: 10px;
   margin-left: 20px;
   text-shadow: 1px 1px  grey;
+}
+
+.container {
+  margin-left:50px;
+  margin-right:50px;
+}
+
+.category-image-size{
+  width: 240px;
+  height: 320px;
+  margin: auto;
+  display: block;
 }

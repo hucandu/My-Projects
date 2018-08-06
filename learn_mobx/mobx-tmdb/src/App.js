@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import UltimateAppBar from './appbar';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import TheatreSlider from './theatreSlider';
-
+import CategorySlider from './categorySlider';
+import {observer} from "mobx-react";
 
 const theme = createMuiTheme({
   palette: {
@@ -21,13 +22,17 @@ const theme = createMuiTheme({
   }
 });
 
-class App extends Component {
+@observer class App extends Component {
+
   render() {
     return (<MuiThemeProvider theme={theme}>
       <UltimateAppBar />
-      <TheatreSlider />
+      <TheatreSlider data={this.props.store}/>
       <h1 className="sub-heading">Most Popular</h1>
       <div className="line"></div>
+      <div className="container">
+        <CategorySlider/>
+      </div>
     </MuiThemeProvider>);
   }
 }

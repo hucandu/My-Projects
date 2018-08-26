@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
+
+.theatre-heading{
+  position: absolute;
+  bottom: 0;
+  padding: 5px;
+  margin-left:20px;
+}
+
+.banner-image{
+   width: 100%;
+   height: 400px;
+   background-position: center top;
+   background-repeat: no-repeat;
+   background-size:cover;
+   overflow-x: hidden;
+   word-wrap: break-word;
+}
+
+.movie-name{
+  font-family: 'Luckiest Guy', cursive;
+  text-shadow: 4px 4px 8px black;
+  font-size: 50px;
+  color:	#F5F5F5;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.star-checked{
+  color:#FFDF00;
+  font-size: 30px;
+}
+
+.theatre-poster-rating-box{
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
+.movie-overview{
+  font-family: 'Abel', sans-serif;
+  width: 60%;
+  text-shadow: 2px 2px 4px black;
+  color: white;
+  overflow-x: hidden;
+  word-wrap: break-word;
+
+}

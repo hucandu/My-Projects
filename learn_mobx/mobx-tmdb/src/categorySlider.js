@@ -4,7 +4,7 @@ import React, {
 import Slider from "react-slick";
 import {observer} from "mobx-react";
 
-@observer class TVCategorySlider extends Component {
+@observer class CategorySlider extends Component {
 
   componentDidMount() {
     fetch('https://api.themoviedb.org/3/tv/popular?api_key=37385faf2d2e88f3611879acf84ec5dd&language=en-US&page=1').then((response)=> response.json())
@@ -66,4 +66,4 @@ import {observer} from "mobx-react";
   }
 }
 
-export default TVCategorySlider;
+export default CategorySlider;

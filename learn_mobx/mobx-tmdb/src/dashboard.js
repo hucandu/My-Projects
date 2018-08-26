@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import UltimateAppBar from './appbar';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import TheatreSlider from './theatreSlider';
-import TVCategorySlider from './tv-categorySlider';
+import CategorySlider from './categorySlider';
 import {observer} from "mobx-react";
 import {observable} from "mobx";
 
@@ -40,7 +40,7 @@ const appState = observable({
       <h1 className="sub-heading">Most Popular <span>(TV Serial)</span></h1>
       <div className="line"></div>
       <div className="container">
-        <TVCategorySlider data={appState}/>
+        <CategorySlider data={appState}/>
       </div>
     </MuiThemeProvider>);
   }

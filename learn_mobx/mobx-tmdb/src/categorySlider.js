@@ -15,7 +15,8 @@ import './category-slider.css';
           this.props.data.mostPopularTv.push(
             {
               'posterPath':images.poster_path,
-              'rating':images.vote_average
+              'rating':images.vote_average,
+              'genreList':images.genre_ids
             }
           );
         })
@@ -64,7 +65,7 @@ import './category-slider.css';
             <img src = {`https://image.tmdb.org/t/p/w200/${data.posterPath}`} alt="Not Available"></img>
             <div className="category-image-content">
               <h1>{data.rating}</h1>
-              <h3>{genreList(28)[0]}</h3>
+              <h3>{genreList(data.genreList[0])}</h3>
             </div>
             </div>
           })

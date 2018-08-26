@@ -40,6 +40,10 @@ body {
   float: left;
 }
 
+.p-relative{
+  position: relative;
+}
+
 .sub-heading {
   font-family: 'Abel', sans-serif;
   color: gainsboro;
@@ -55,11 +59,4 @@ body {
 .container {
   margin-left: 50px;
   margin-right: 50px;
-}
-
-.category-image-size {
-  width: 240px;
-  height: 320px;
-  margin: auto;
-  display: block;
 }

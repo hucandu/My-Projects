@@ -3,16 +3,19 @@ import React, {
 } from "react";
 import Slider from "react-slick";
 import {observer} from "mobx-react";
+import './category-slider.css';
 
 @observer class CategorySlider extends Component {
 
   componentDidMount() {
     fetch('https://api.themoviedb.org/3/tv/popular?api_key=37385faf2d2e88f3611879acf84ec5dd&language=en-US&page=1').then((response)=> response.json())
     .then((jResponse)=> {
+        console.log(jResponse)
         jResponse.results.forEach((images)=>{
           this.props.data.mostPopularTv.push(
             {
-              'posterPath':images.poster_path
+              'posterPath':images.poster_path,
+              'rating':images.vote_average
             }
           );
         })
@@ -54,8 +57,16 @@ import {observer} from "mobx-react";
     };
     const renderOnLoad = ()=>{
       if(!this.props.data.popularTvIsLoading){
-          return this.props.data.mostPopularTv.map((data)=>{
-            return <div><img className="category-image-size" src = {`https://image.tmdb.org/t/p/w500/${data.posterPath}`}></img></div>
+          const genre = require('./DataStore/genre.json');
+          const genreList = (id)=>genre.genres.map((data)=> data.id===id?data.name:null).filter((data)=>data!==null)
+          return this.props.data.mostPopularTv.map((data,position)=>{
+            return <div className="category-image p-relative" key={position}>
+            <img src = {`https://image.tmdb.org/t/p/w200/${data.posterPath}`} alt="Not Available"></img>
+            <div className="category-image-content">
+              <h1>{data.rating}</h1>
+              <h3>{genreList(28)[0]}</h3>
+            </div>
+            </div>
           })
       }
     }

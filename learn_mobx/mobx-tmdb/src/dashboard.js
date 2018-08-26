@@ -24,20 +24,22 @@ const theme = createMuiTheme({
 });
 
 const appState = observable({
-   theatrePosters:[],
-   mostPopularMovies:[],
-   mostPopularTv:[],
-   theatreBannerIsLoading:true,
-   popularTvIsLoading:true
+  theatrePosters: [],
+  mostPopularMovies: [],
+  mostPopularTv: [],
+  theatreBannerIsLoading: true,
+  popularTvIsLoading: true,
 });
 
 @observer class Dashboard extends Component {
 
   render() {
     return (<MuiThemeProvider theme={theme}>
-      <UltimateAppBar />
+      <UltimateAppBar/>
       <TheatreSlider data={appState}/>
-      <h1 className="sub-heading">Most Popular <span>(TV Serial)</span></h1>
+      <h1 className="sub-heading">Most Popular
+        <span>(TV Serial)</span>
+      </h1>
       <div className="line"></div>
       <div className="container">
         <CategorySlider data={appState}/>

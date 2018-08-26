@@ -21,7 +21,7 @@
   font-family: 'Luckiest Guy', cursive;
   text-shadow: 4px 4px 8px black;
   font-size: 50px;
-  color:	#F5F5F5;
+  color:	white;
   margin-bottom: 0px;
   padding-bottom: 0px;
 }
@@ -35,6 +35,8 @@
   padding: 10px;
   font-size: 20px;
   color: white;
+  margin-top: 10px;
+  margin-right: 40px;
   text-shadow: 2px 2px black;
 }
 
@@ -42,7 +44,7 @@
   font-family: 'Abel', sans-serif;
   width: 60%;
   text-shadow: 2px 2px 4px black;
-  color: white;
+  color: #caffff;
   overflow-x: hidden;
   word-wrap: break-word;
 

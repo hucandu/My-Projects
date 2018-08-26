@@ -3,6 +3,8 @@ import Slider from "react-slick";
 import "./index.css";
 import {observer} from "mobx-react";
 import './theatreSlider.css';
+import CircularProgressbar from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 @observer class TheatreSlider extends React.Component {
 
   componentDidMount() {
@@ -15,7 +17,8 @@ import './theatreSlider.css';
             'name': images.title,
             'rating': images.vote_average,
             'overview': images.overview,
-            'movieID': images.id
+            'movieID': images.id,
+            'popularity':images.popularity
           }
         );
       })
@@ -43,7 +46,6 @@ import './theatreSlider.css';
         return stars;
     }
     const banners = () => {
-      const percentage = 66;
       if (!this.props.data.theatreBannerIsLoading) {
         let banner = this.props.data.theatrePosters.map((data, position) => {
           let overviewSlice = data.overview;
@@ -62,7 +64,29 @@ import './theatreSlider.css';
               <div className="f-right theatre-poster-rating-box">
                 {ratingStars(data.rating)}
               </div>
-
+              <div className="popularity-bar-block">
+              <div className="popularity-bar f-left">
+              <CircularProgressbar
+                percentage={Math.round(data.popularity/300*100)}
+                text={`${Math.round(data.popularity/300*100)}%`}
+                background
+                backgroundPadding={6}
+                styles={{
+                  background: {
+                    fill: '#00a8e1',
+                  },
+                  text: {
+                    fill: '#fff',
+                  },
+                  path: {
+                   stroke: '#fff',
+                 },
+                  trail: { stroke: 'transparent' },
+                }}
+                    />
+                </div>
+                <span className="f-left fa fa-thumbs-up"> like</span>
+              </div>
             </div>
           </div>;
         });

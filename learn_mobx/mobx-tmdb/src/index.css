@@ -39,6 +39,10 @@ margin-left: 10px;
   float:right;
 }
 
+.f-left{
+  float: left;
+}
+
 .sub-heading{
   font-family: 'Abel', sans-serif;
   color: gainsboro;

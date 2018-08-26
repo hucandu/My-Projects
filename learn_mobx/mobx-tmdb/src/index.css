@@ -6,57 +6,58 @@ body {
   background-color: #202020;
 }
 
-.app-bar-icon{
-
+.app-bar-icon {
   height: auto;
   width: 100%;
   max-width: 30px;
   cursor: pointer;
 }
 
-.app-bar-heading{
-font-family: 'Yellowtail', cursive;
-flex-grow: 1;
-margin-left: 10px;
-
+.app-bar-heading {
+  font-family: 'Yellowtail', cursive;
+  flex-grow: 1;
+  margin-left: 10px;
 }
 
-
-.slick-slider{
-  margin-top:60px ;
+.slick-slider {
+  margin-top: 60px;
 }
 
-.line{
-  height:2px;
+.line {
+  height: 2px;
   background-color: #00a8e1;
-  margin-left:2%;
+  margin-left: 2%;
   margin-right: 2%;
-  margin-top:-25px;
-  margin-bottom:-25px;
+  margin-top: -25px;
+  margin-bottom: -25px;
 }
 
-.f-right{
-  float:right;
+.f-right {
+  float: right;
 }
 
-.f-left{
+.f-left {
   float: left;
 }
 
-.sub-heading{
+.sub-heading {
   font-family: 'Abel', sans-serif;
   color: gainsboro;
   padding: 10px;
   margin-left: 20px;
-  text-shadow: 1px 1px  grey;
+  text-shadow: 1px 1px grey;
+}
+
+.sub-heading span {
+  font-size: 20px;
 }
 
 .container {
-  margin-left:50px;
-  margin-right:50px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
-.category-image-size{
+.category-image-size {
   width: 240px;
   height: 320px;
   margin: auto;

@@ -55,7 +55,7 @@ import 'react-circular-progressbar/dist/styles.css';
 
           return <div key={position}>
             <div className="banner-image" style={{
-                backgroundImage: 'url(https://image.tmdb.org/t/p/w1280/' + data.posterPath + ')'
+                backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${data.posterPath})`
               }}>
               <div className="theatre-heading">
                 <h1 className="movie-name">{data.name}</h1>

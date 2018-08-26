@@ -50,6 +50,10 @@
 
 }
 
+.popularity-bar-block{
+  margin-top:10px;
+}
+
 .popularity-bar-block span{
   margin-top: 30px;
   color: white;

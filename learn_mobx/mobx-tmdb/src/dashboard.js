@@ -25,8 +25,7 @@ const theme = createMuiTheme({
 
 const appState = observable({
   theatrePosters: [],
-  mostPopularMovies: [],
-  mostPopularTv: [],
+  mostPopular:{movie:[],tv:[]},
   theatreBannerIsLoading: true,
   popularTvIsLoading: true,
 });
@@ -41,7 +40,13 @@ const appState = observable({
       </h1>
       <div className="line"></div>
       <div className="container">
-        <CategorySlider data={appState}/>
+        <CategorySlider data={appState.mostPopular.tv} type="tv"/>
+      </div>
+      <h1 className="sub-heading" style={{marginTop:80}}>Most Popular <span>(Movies)</span>
+      </h1>
+      <div className="line"></div>
+      <div className="container">
+        <CategorySlider data={appState.mostPopular.movie} type="movie"/>
       </div>
     </MuiThemeProvider>);
   }

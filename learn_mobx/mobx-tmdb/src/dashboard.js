@@ -37,8 +37,7 @@ const appState = observable({
     return (<MuiThemeProvider theme={theme}>
       <UltimateAppBar/>
       <TheatreSlider data={appState}/>
-      <h1 className="sub-heading">Most Popular
-        <span>(TV Serial)</span>
+      <h1 className="sub-heading">Most Popular <span>(TV Serial)</span>
       </h1>
       <div className="line"></div>
       <div className="container">

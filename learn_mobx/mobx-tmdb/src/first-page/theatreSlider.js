@@ -1,8 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
-import "./index.css";
 import {observer} from "mobx-react";
-import './theatreSlider.css';
+import '../css/theatreSlider.css';
 import CircularProgressbar from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 @observer class TheatreSlider extends React.Component {

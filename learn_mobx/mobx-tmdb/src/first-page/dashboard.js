@@ -27,7 +27,6 @@ const appState = observable({
   theatrePosters: [],
   mostPopular:{movie:[],tv:[]},
   theatreBannerIsLoading: true,
-  popularTvIsLoading: true,
 });
 
 @observer class Dashboard extends Component {

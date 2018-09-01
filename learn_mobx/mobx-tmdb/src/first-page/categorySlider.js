@@ -3,7 +3,7 @@ import React, {
 } from "react";
 import Slider from "react-slick";
 import {observer} from "mobx-react";
-import './category-slider.css';
+import '../css/category-slider.css';
 
 @observer class CategorySlider extends Component {
 
@@ -20,7 +20,6 @@ import './category-slider.css';
             }
           );
         })
-        this.props.data.popularTvIsLoading = false;
     }).catch((e)=>{console.log(e)});
   }
   render() {
@@ -85,8 +84,7 @@ import './category-slider.css';
       ]
     };
     const renderOnLoad = ()=>{
-      if(!this.props.data.popularTvIsLoading){
-          const genre = require('./DataStore/genre.json');
+          const genre = require('../DataStore/genre.json');
           const genreList = (id)=>genre.genres.map((data)=> data.id===id?data.name:null).filter((data)=>data!==null)
           return this.props.data.map((data,position)=>{
             return <div className="category-image p-relative" key={position}>
@@ -97,7 +95,6 @@ import './category-slider.css';
             </div>
             </div>
           })
-      }
     }
     return ( <Slider { ...settings} >
       {renderOnLoad()}

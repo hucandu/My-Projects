@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import UltimateAppBar from './appbar';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
-import TheatreSlider from './theatreSlider';
-import CategorySlider from './categorySlider';
 import {observer} from "mobx-react";
 import {observable} from "mobx";
 
@@ -29,26 +27,13 @@ const appState = observable({
   theatreBannerIsLoading: true,
 });
 
-@observer class Dashboard extends Component {
+@observer class ContentContainer extends Component {
 
   render() {
     return (<MuiThemeProvider theme={theme}>
-      <UltimateAppBar/>
-      <TheatreSlider data={appState}/>
-      <h1 className="sub-heading">Most Popular <span>(TV Serial)</span>
-      </h1>
-      <div className="line"></div>
-      <div className="container">
-        <CategorySlider data={appState} type="tv"/>
-      </div>
-      <h1 className="sub-heading" style={{marginTop:80}}>Most Popular <span>(Movies)</span>
-      </h1>
-      <div className="line"></div>
-      <div className="container">
-        <CategorySlider data={appState} type="movie"/>
-      </div>
+      <h3>{this.props.match.params.redirectParam}</h3>
     </MuiThemeProvider>);
   }
 }
 
-export default Dashboard;
+export default ContentContainer;

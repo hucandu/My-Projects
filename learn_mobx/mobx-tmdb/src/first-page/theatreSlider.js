@@ -9,9 +9,8 @@ import 'react-circular-progressbar/dist/styles.css';
   componentDidMount() {
     fetch('https://api.themoviedb.org/3/discover/movie?api_key=37385faf2d2e88f3611879acf84ec5dd&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1').then(response => response.json()).then((data) => {
       console.log(data)
-      data.results.forEach((images) => {
-        this.props.data.theatrePosters.push(
-          {
+      this.props.data.theatrePosters = data.results.map((images) => {
+          return {
             'posterPath': images.backdrop_path,
             'name': images.title,
             'rating': images.vote_average,
@@ -19,7 +18,6 @@ import 'react-circular-progressbar/dist/styles.css';
             'movieID': images.id,
             'popularity':images.popularity
           }
-        );
       })
       this.props.data.theatreBannerIsLoading = false
     }).catch(e => console.log(e));

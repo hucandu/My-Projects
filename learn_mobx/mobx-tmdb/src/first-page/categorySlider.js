@@ -3,6 +3,7 @@ import React, {
 } from "react";
 import Slider from "react-slick";
 import {observer} from "mobx-react";
+import {Link} from 'react-router-dom';
 import '../css/category-slider.css';
 
 @observer class CategorySlider extends Component {
@@ -11,14 +12,13 @@ import '../css/category-slider.css';
     fetch(`https://api.themoviedb.org/3/${this.props.type}/popular?api_key=37385faf2d2e88f3611879acf84ec5dd&language=en-US&page=1`).then((response)=> response.json())
     .then((jResponse)=> {
         console.log(jResponse)
-        jResponse.results.forEach((images)=>{
-          this.props.data.push(
-            {
+        this.props.data.mostPopular[this.props.type] = jResponse.results.map((images)=>{
+            return {
               'posterPath':images.poster_path,
               'rating':images.vote_average,
-              'genreList':images.genre_ids
+              'genreList':images.genre_ids,
+              'id':images.id
             }
-          );
         })
     }).catch((e)=>{console.log(e)});
   }
@@ -85,15 +85,15 @@ import '../css/category-slider.css';
     };
     const renderOnLoad = ()=>{
           const genre = require('../DataStore/genre.json');
-          const genreList = (id)=>genre.genres.map((data)=> data.id===id?data.name:null).filter((data)=>data!==null)
-          return this.props.data.map((data,position)=>{
-            return <div className="category-image p-relative" key={position}>
+          const genreList = (id,position)=>genre.genres.map((data)=> data.id===id?data.name:null).filter((data)=>data!==null)
+          return this.props.data.mostPopular[this.props.type].map((data,position)=>{
+            return <Link to={`/${this.props.type}/${data.id}`}><div className="category-image p-relative" key={position}>
             <img src = {`https://image.tmdb.org/t/p/w200/${data.posterPath}`} alt="Not Available"></img>
-            <div className="category-image-content">
+            <div ket={position} className="category-image-content">
               <h1>{data.rating}</h1>
               <h3>{genreList(data.genreList[0])}</h3>
             </div>
-            </div>
+            </div></Link>
           })
     }
     return ( <Slider { ...settings} >

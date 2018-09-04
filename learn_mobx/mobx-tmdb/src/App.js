@@ -8,7 +8,7 @@ class App extends Component {
         return (<BrowserRouter>
             <Switch>
                 <Route exact={true} path="/" component={Dashboard}/>
-                <Route exact={true} path="/movie/:id" component={ContentContainer}/>
+                <Route exact={true} path="/(movie|tv)/:id" component={ContentContainer}/>
             </Switch>
         </BrowserRouter>);
     }

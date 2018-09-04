@@ -32,7 +32,7 @@ const UltimateAppBar = (props) => {
   return (<div className={classes.root}>
     <AppBar position="fixed" color="primary">
       <Toolbar variant="dense">
-        <img src="/play.png" alt="iconImage" className="app-bar-icon"/>
+      <a href="/"><img src="/play.png" alt="iconImage" className="app-bar-icon"/></a>
         <h2 className="app-bar-heading">
           hucandu shows
         </h2>

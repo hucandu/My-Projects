@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import UltimateAppBar from './appbar';
+import UltimateAppBar from '../appbar';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import TheatreSlider from './theatreSlider';
 import CategorySlider from './categorySlider';

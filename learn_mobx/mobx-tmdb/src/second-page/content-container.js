@@ -3,6 +3,7 @@ import UltimateAppBar from '../appbar';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import {observer} from "mobx-react";
 import {observable} from "mobx";
+import ShowNameAndBanner from './show-name-and-banner';
 import '../css/content-container.css'
 const theme = createMuiTheme({
   palette: {
@@ -21,7 +22,7 @@ const theme = createMuiTheme({
   }
 });
 
-const showData = observable({showBackdropImage: ""});
+const showData = observable({showBackdropImage: "",showPosterImage:""});
 
 @observer class ContentContainer extends Component {
   @observable fetchingData = true;
@@ -30,7 +31,9 @@ const showData = observable({showBackdropImage: ""});
     let showType = this.props.match.params[0];
     let showID = this.props.match.params.id;
     fetch(`https://api.themoviedb.org/3/${showType}/${showID}?api_key=37385faf2d2e88f3611879acf84ec5dd&language=en-US`).then((response) => response.json()).then((rjson) => {
+      console.log(rjson)
       showData.showBackdropImage = rjson.backdrop_path;
+      showData.showPosterImage = rjson.poster_path;
       this.fetchingData = false;
     }).catch((e) => console.log(e))
   }
@@ -48,7 +51,9 @@ const RenderOnLoad = (props) => {
       <div className="image-blur" style={{
           backgroundImage: `url(https://image.tmdb.org/t/p/original/${props.showData.showBackdropImage})`
         }}></div>
-      <div className="container-fluid content"></div>
+      <div className="content m-t-40">
+        <ShowNameAndBanner showData={props.showData}/>
+      </div>
     </div>);
 }
 

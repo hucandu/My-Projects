@@ -87,7 +87,7 @@ import '../css/category-slider.css';
           const genre = require('../DataStore/genre.json');
           const genreList = (id,position)=>genre.genres.map((data)=> data.id===id?data.name:null).filter((data)=>data!==null)
           return this.props.data.mostPopular[this.props.type].map((data,position)=>{
-            return <Link to={`/${this.props.type}/${data.id}`}><div className="category-image p-relative" key={position}>
+            return <Link to={`/${this.props.type}/${data.id}`} key={position}><div className="category-image p-relative">
             <img src = {`https://image.tmdb.org/t/p/w200/${data.posterPath}`} alt="Not Available"></img>
             <div ket={position} className="category-image-content">
               <h1>{data.rating}</h1>

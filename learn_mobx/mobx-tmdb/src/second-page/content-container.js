@@ -22,7 +22,13 @@ const theme = createMuiTheme({
   }
 });
 
-const showData = observable({showBackdropImage: "",showPosterImage:""});
+const showData = observable(
+  {
+    showBackdropImage: "",
+    showPosterImage: "",
+    showHeading: ""
+  }
+  );
 
 @observer class ContentContainer extends Component {
   @observable fetchingData = true;
@@ -34,27 +40,27 @@ const showData = observable({showBackdropImage: "",showPosterImage:""});
       console.log(rjson)
       showData.showBackdropImage = rjson.backdrop_path;
       showData.showPosterImage = rjson.poster_path;
+      showData.showHeading = rjson.original_name;
       this.fetchingData = false;
     }).catch((e) => console.log(e))
   }
 
   render() {
     return (<MuiThemeProvider theme={theme}>
-      <UltimateAppBar/>
-      {!this.fetchingData && <RenderOnLoad showData={showData}/>}
+      <UltimateAppBar/> {!this.fetchingData && <RenderOnLoad showData={showData}/>}
     </MuiThemeProvider>);
   }
 }
 
 const RenderOnLoad = (props) => {
-  return(  <div>
-      <div className="image-blur" style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/original/${props.showData.showBackdropImage})`
-        }}></div>
-      <div className="content m-t-40">
-        <ShowNameAndBanner showData={props.showData}/>
-      </div>
-    </div>);
+  return (<div>
+    <div className="image-blur" style={{
+        backgroundImage: `url(https://image.tmdb.org/t/p/original/${props.showData.showBackdropImage})`
+      }}></div>
+    <div className="content m-t-40">
+      <ShowNameAndBanner showData={props.showData}/>
+    </div>
+  </div>);
 }
 
 export default ContentContainer;

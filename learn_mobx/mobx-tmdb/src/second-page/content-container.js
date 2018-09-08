@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component,Fragment}  from 'react';
 import UltimateAppBar from '../appbar';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import {observer} from "mobx-react";
 import {observable} from "mobx";
 import ShowNameAndBanner from './show-name-and-banner';
-import '../css/content-container.css'
+import '../css/content-container.css';
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -40,7 +40,7 @@ const showData = observable(
       console.log(rjson)
       showData.showBackdropImage = rjson.backdrop_path;
       showData.showPosterImage = rjson.poster_path;
-      showData.showHeading = rjson.original_name;
+      showData.showHeading = rjson.original_name?rjson.original_name:rjson.original_title;
       this.fetchingData = false;
     }).catch((e) => console.log(e))
   }
@@ -53,14 +53,14 @@ const showData = observable(
 }
 
 const RenderOnLoad = (props) => {
-  return (<div>
+  return (<Fragment>
     <div className="image-blur" style={{
         backgroundImage: `url(https://image.tmdb.org/t/p/original/${props.showData.showBackdropImage})`
       }}></div>
     <div className="content m-t-40">
       <ShowNameAndBanner showData={props.showData}/>
     </div>
-  </div>);
+  </Fragment>);
 }
 
 export default ContentContainer;

@@ -19,15 +19,15 @@ const styles = theme => ({
 function ShowNameAndBanner(props) {
   const {classes} = props;
 
-  return (<div className={classes.root}>
+  return (<div className={classes.root} style={{marginLeft:40,marginRight:40}}>
     <Grid container={true} spacing={40}>
       <Grid item={true} xs={3}>
         <div className="show-image"><img src={`https://image.tmdb.org/t/p/w300/${props.showData.showPosterImage}`}/></div>
       </Grid>
       <Grid item={true} xs={6}>
-        <Typography variant="display3" gutterBottom={true}>
+          <h1 className="show-heading">
           {props.showData.showHeading}
-        </Typography>
+        </h1>
       </Grid>
       <Grid item={true} xs={3}>
         <Paper className={classes.paper}>xs=3</Paper>

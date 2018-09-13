@@ -41,6 +41,7 @@ const showData = observable(
       showData.showBackdropImage = rjson.backdrop_path;
       showData.showPosterImage = rjson.poster_path;
       showData.showHeading = rjson.original_name?rjson.original_name:rjson.original_title;
+      showData.showOverview = rjson.overview;
       this.fetchingData = false;
     }).catch((e) => console.log(e))
   }

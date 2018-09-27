@@ -67,6 +67,8 @@ const RenderOnLoad = (props) => {
       }}></div>
     <div className="content m-t-40">
       <ShowNameAndBanner showData={props.showData}/>
+      <h1 className="show-sub-heading" style={{marginTop:80}}>Synopsis</h1>
+      <div className="line"></div>
     </div>
   </Fragment>);
 }

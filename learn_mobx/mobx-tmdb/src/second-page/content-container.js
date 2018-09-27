@@ -1,4 +1,4 @@
-import React, {Component,Fragment}  from 'react';
+import React, {Component, Fragment} from 'react';
 import UltimateAppBar from '../appbar';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import {observer} from "mobx-react";
@@ -22,13 +22,7 @@ const theme = createMuiTheme({
   }
 });
 
-const showData = observable(
-  {
-    showBackdropImage: "",
-    showPosterImage: "",
-    showHeading: ""
-  }
-  );
+const showData = observable({showBackdropImage: "", showPosterImage: "", showHeading: "", genres: ""});
 
 @observer class ContentContainer extends Component {
   @observable fetchingData = true;
@@ -40,8 +34,21 @@ const showData = observable(
       console.log(rjson)
       showData.showBackdropImage = rjson.backdrop_path;
       showData.showPosterImage = rjson.poster_path;
-      showData.showHeading = rjson.original_name?rjson.original_name:rjson.original_title;
+      showData.showHeading = rjson.original_name
+        ? rjson.original_name
+        : rjson.original_title;
       showData.showOverview = rjson.overview;
+      showData.genres = rjson.genres.map((data) => data.name).join("/")
+      showData.release_date = rjson.release_date
+        ? rjson.release_date.split("-")[0]
+        : `${rjson.first_air_date.split("-")[0]} - ${rjson.last_air_date.split("-")[0]}`
+      showData.vote_average = rjson.vote_average;
+      showData.vote_count = rjson.vote_count;
+      showData.popularity = rjson.popularity;
+      showData.production_company = rjson.production_companies.map((data) => {
+        if (data.logo_path)
+          return data
+      }).filter((data) => data !== undefined)
       this.fetchingData = false;
     }).catch((e) => console.log(e))
   }

@@ -9,7 +9,7 @@ import '../css/category-slider.css';
 @observer class CategorySlider extends Component {
 
   componentDidMount() {
-    fetch(`https://api.themoviedb.org/3/${this.props.type}/popular?api_key=37385faf2d2e88f3611879acf84ec5dd&language=en-US&page=1`).then((response)=> response.json())
+    fetch(`https://api.themoviedb.org/3/${this.props.type}/popular?api_key=37385faf2d2e88f3611879acf84ec5dd&include_adult=true&language=en-US&page=1`).then((response)=> response.json())
     .then((jResponse)=> {
         console.log(jResponse)
         this.props.data.mostPopular[this.props.type] = jResponse.results.map((images)=>{
@@ -33,7 +33,7 @@ import '../css/category-slider.css';
         {
             breakpoint: 1900,
             settings: {
-              slidesToShow: 6,
+              slidesToShow: 7,
               slidesToScroll: 1,
               infinite: true,
               dots: true
@@ -42,7 +42,7 @@ import '../css/category-slider.css';
         {
             breakpoint: 1367,
             settings: {
-              slidesToShow: 5,
+              slidesToShow: 6,
               slidesToScroll: 1,
               infinite: true,
               dots: true
@@ -51,7 +51,7 @@ import '../css/category-slider.css';
         {
             breakpoint: 1280,
             settings: {
-              slidesToShow: 4,
+              slidesToShow: 5,
               slidesToScroll: 1,
               infinite: true,
               dots: true
@@ -60,7 +60,7 @@ import '../css/category-slider.css';
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: 3,
+            slidesToShow: 4,
             slidesToScroll: 3,
             infinite: true,
             dots: true
@@ -69,7 +69,7 @@ import '../css/category-slider.css';
         {
           breakpoint: 600,
           settings: {
-            slidesToShow: 2,
+            slidesToShow: 3,
             slidesToScroll: 1,
             initialSlide: 2
           }
@@ -77,7 +77,7 @@ import '../css/category-slider.css';
         {
           breakpoint: 480,
           settings: {
-            slidesToShow: 1,
+            slidesToShow: 2,
             slidesToScroll: 1
           }
         }

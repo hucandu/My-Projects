@@ -1,11 +1,13 @@
 .category-image img {
-  width: 240px;
-  height: 320px;
+  width: 96%;
   margin: auto;
   display: block;
   cursor: pointer;
   transition: all 0.4s ease;
   z-index: 1;
+  object-position: center;
+  object-fit: cover;
+
 }
 
 .category-image img:hover {
@@ -19,6 +21,7 @@
 .category-image:hover {
   border: 2px solid #00a8e1;
   border-radius: 2%;
+  filter: blur(1px);
 }
 
 .category-image:hover .category-image-content {

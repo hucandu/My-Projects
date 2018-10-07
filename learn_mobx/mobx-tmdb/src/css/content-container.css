@@ -16,12 +16,13 @@
   }
 
 .content {
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
-  z-index: 9999;
+  z-index: 2;
   margin-left: 20px;
   margin-right: 20px;
+
 }
 
 .m-t-20 {
@@ -92,12 +93,16 @@
 }
 
 
-.production-and-banner > img {
-  width: 20%;
-  max-height: 90px;
+.production-and-banner  img {
+  padding: 4px;
+  width:80%;
+  max-width: 80px;
+  max-height: 80px;
   display: block;
   margin: auto;
 }
+
+
 .production-and-banner > h3 {
   font-family: 'Kalam', cursive;
   text-align: center;
@@ -118,4 +123,8 @@
 
 .show-sub-heading span {
   font-size: 20px;
+}
+
+.fixed-height{
+  height: 20vh;
 }

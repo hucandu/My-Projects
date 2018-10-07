@@ -5,6 +5,8 @@ import {observer} from "mobx-react";
 import {observable} from "mobx";
 import ShowNameAndBanner from './show-name-and-banner';
 import '../css/content-container.css';
+import MovieSection from './movie-section'
+import SimilarBinder from '../second-page/similar-binder'
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -22,15 +24,16 @@ const theme = createMuiTheme({
   }
 });
 
-const showData = observable({showBackdropImage: "", showPosterImage: "", showHeading: "", genres: ""});
+const showData = observable({});
 
 @observer class ContentContainer extends Component {
   @observable fetchingData = true;
+
   componentDidMount() {
     this.fetchingData = true;
-    let showType = this.props.match.params[0];
-    let showID = this.props.match.params.id;
-    fetch(`https://api.themoviedb.org/3/${showType}/${showID}?api_key=37385faf2d2e88f3611879acf84ec5dd&language=en-US`).then((response) => response.json()).then((rjson) => {
+    this.showType = this.props.match.params[0];
+    this.showID = this.props.match.params.id;
+    fetch(`https://api.themoviedb.org/3/${this.showType}/${this.showID}?api_key=37385faf2d2e88f3611879acf84ec5dd&language=en-US`).then((response) => response.json()).then((rjson) => {
       console.log(rjson)
       showData.showBackdropImage = rjson.backdrop_path;
       showData.showPosterImage = rjson.poster_path;
@@ -46,8 +49,7 @@ const showData = observable({showBackdropImage: "", showPosterImage: "", showHea
       showData.vote_count = rjson.vote_count;
       showData.popularity = rjson.popularity;
       showData.production_company = rjson.production_companies.map((data) => {
-        if (data.logo_path)
-          return data
+        return data.logo_path ? data : undefined
       }).filter((data) => data !== undefined)
       this.fetchingData = false;
     }).catch((e) => console.log(e))
@@ -55,7 +57,7 @@ const showData = observable({showBackdropImage: "", showPosterImage: "", showHea
 
   render() {
     return (<MuiThemeProvider theme={theme}>
-      <UltimateAppBar/> {!this.fetchingData && <RenderOnLoad showData={showData}/>}
+      <UltimateAppBar/> {!this.fetchingData && <RenderOnLoad showData={showData} showType={this.props.match.params[0]} showID={this.showID}/>}
     </MuiThemeProvider>);
   }
 }
@@ -67,8 +69,7 @@ const RenderOnLoad = (props) => {
       }}></div>
     <div className="content m-t-40">
       <ShowNameAndBanner showData={props.showData}/>
-      <h1 className="show-sub-heading" style={{marginTop:80}}>Synopsis</h1>
-      <div className="line"></div>
+      {props.showType === "movie" ? <MovieSection showData={props.showData} showType={props.showType} showID={props.showID}/>:null}
     </div>
   </Fragment>);
 }

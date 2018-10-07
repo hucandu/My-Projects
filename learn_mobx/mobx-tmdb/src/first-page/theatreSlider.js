@@ -7,7 +7,7 @@ import 'react-circular-progressbar/dist/styles.css';
 @observer class TheatreSlider extends React.Component {
 
   componentDidMount() {
-    fetch('https://api.themoviedb.org/3/discover/movie?api_key=37385faf2d2e88f3611879acf84ec5dd&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1').then(response => response.json()).then((data) => {
+    fetch('https://api.themoviedb.org/3/discover/movie?api_key=37385faf2d2e88f3611879acf84ec5dd&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1').then(response => response.json()).then((data) => {
       console.log(data)
       this.props.data.theatrePosters = data.results.map((images) => {
           return {

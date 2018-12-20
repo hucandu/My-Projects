@@ -28,6 +28,8 @@ const showData = observable({});
 
 @observer class ContentContainer extends Component {
   @observable fetchingData = true;
+  @observable showType = null
+  @observable showID = null
 
   componentDidMount() {
     this.fetchingData = true;
@@ -57,7 +59,7 @@ const showData = observable({});
 
   render() {
     return (<MuiThemeProvider theme={theme}>
-      <UltimateAppBar/> {!this.fetchingData && <RenderOnLoad showData={showData} showType={this.props.match.params[0]} showID={this.showID}/>}
+      <UltimateAppBar/> {!this.fetchingData && <RenderOnLoad showData={showData} showType={this.showType} showID={this.showID}/>}
     </MuiThemeProvider>);
   }
 }
@@ -68,8 +70,8 @@ const RenderOnLoad = (props) => {
         backgroundImage: `url(https://image.tmdb.org/t/p/original/${props.showData.showBackdropImage})`
       }}></div>
     <div className="content m-t-40">
-      <ShowNameAndBanner showData={props.showData}/>
-      {props.showType === "movie" ? <MovieSection showData={props.showData} showType={props.showType} showID={props.showID}/>:null}
+      <ShowNameAndBanner showData={props.showData} showType={props.showType} showID={props.showID}/>
+      {props.showType === "movie" ? <MovieSection showData={props.showData}/>:null}
     </div>
   </Fragment>);
 }

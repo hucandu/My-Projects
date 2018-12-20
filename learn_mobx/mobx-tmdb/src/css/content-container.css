@@ -11,7 +11,7 @@
   width: 100%;
   height: 100%;
   filter: blur(8px);
-  background-color: #202020;
+  background-color: #585858;
   background-blend-mode: multiply;
   }
 
@@ -127,4 +127,8 @@
 
 .fixed-height{
   height: 20vh;
+}
+
+.MuiGridList-root-171{
+  overflow-y: hidden !important;
 }
